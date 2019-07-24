@@ -1,8 +1,13 @@
 # [PEG.js](https://github.com/pegjs/pegjs) Require Extension
 
-A simple require extension for PEG.js that supports importing syntax
+A simple require extension for PEG.js that supports importing syntax  
+  
+*If you're using webpack, it's recommended to use [pegjs-import-loader](https://github.com/phuongduyphan/pegjs-import-loader)*
 
-# Usage
+## Install
+`npm install --save-dev pegjs-require-import`
+
+## Usage
 ### Importing Syntax
 *parser.pegjs:*
 ```js
@@ -27,6 +32,9 @@ Factor
 @import './base-rules.pegjs'
 @import './keywords.pegjs'
 ```
+*Import syntax is the same as in [pegjs-import-loader](https://github.com/phuongduyphan/pegjs-import-loader)*  
+  
+
 ### Generate a parser in JS code using require
 ```js
 const pegjs_require = require('pegjs-require-import');
@@ -38,7 +46,7 @@ const parser = pegjs_require('./parser.pegjs', {
 });
 const result = parser.parse(content);
 ```
-# API
+## API
 ### pegjs_require(file_path, options)
 #### options
 Type: object  
