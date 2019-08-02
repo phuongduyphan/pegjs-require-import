@@ -84,8 +84,10 @@ class PegImportHelper {
 
   generateParser(rootPath, options) {
     const data = this.generateAllFileContent(rootPath);
-    const parser = peg.generate(data, options);
-    parser = Object.assign(parser, { sourceCode: data });
+    let parser = peg.generate(data, options);
+    if (options.output === 'parser') {
+      parser = Object.assign(parser, { sourceCode: data });
+    }
     return parser;
   }
 }
